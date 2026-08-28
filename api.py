@@ -36,6 +36,18 @@ def generate_audio(text):
     tts.write_to_fp(fp)
     return fp.getvalue()
 
+#quiz generation:
+def generate_quiz(text, difficulty):
+    prompt = f"Based on the following text, create a {difficulty} level quiz with 5 multiple-choice questions. Provide the correct answers at the very end.\n\nText:\n{text}"
+    interaction = client.interactions.create(
+        model="gemini-3.6-flash",
+        input=prompt,
+        generation_config={
+            "thinking_level": "high"
+        }
+    )
+    return interaction.output_text
+
 #note generation:
 def generate_note(note_type):
     prompt = f"Write a note about {note_type}. Make sure to include key points and examples."

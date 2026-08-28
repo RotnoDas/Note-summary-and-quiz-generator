@@ -1,5 +1,5 @@
 import streamlit as st
-from api import generate_note, extract_text_from_file, generate_audio
+from api import generate_note, extract_text_from_file, generate_audio, generate_quiz
 
 st.title("Note Summary and Quiz Generator")
 st.markdown(":yellow[Upload upto 3 notes and generate a quiz for them]")
@@ -76,4 +76,5 @@ if pressed:
         with st.container(border=True):
             st.subheader(f"Quiz for {quiz_type}")
             with st.spinner("Generating quiz..."):
-                st.text("Quiz will be displayed here")
+                quiz_content = generate_quiz(all_text, quiz_type)
+                st.write(quiz_content)
