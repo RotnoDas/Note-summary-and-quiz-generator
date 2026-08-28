@@ -1,5 +1,9 @@
 # 📚 Note Summary and Quiz Generator
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://note-summary-and-quiz-generator-app.streamlit.app/)
+
+**[🚀 Try the Live App Here!](https://note-summary-and-quiz-generator-app.streamlit.app/)**
+
 Welcome to the **Note Summary and Quiz Generator**! 🚀 This powerful Streamlit application allows you to upload your study notes and instantly generates concise summaries, an audio version for on-the-go listening, and interactive quizzes to test your knowledge! Powered by Google's cutting-edge **Gemini API**.
 
 ## ✨ Features
