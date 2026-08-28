@@ -23,6 +23,19 @@ def extract_text_from_file(uploaded_file):
     elif uploaded_file.name.endswith(".txt"):
         text = uploaded_file.getvalue().decode("utf-8")
     return text
+from gtts import gTTS
+import io
+import re
+
+#audio generation:
+def generate_audio(text):
+    clean_text = text.replace('*', ' ').replace('#', ' ').replace('_', ' ').replace('-', ' ')
+    clean_text = re.sub(r'[^a-zA-Z0-9\s.,!?\'"]', '', clean_text)
+    tts = gTTS(text=clean_text, lang='en', slow=False)
+    fp = io.BytesIO()
+    tts.write_to_fp(fp)
+    return fp.getvalue()
+
 #note generation:
 def generate_note(note_type):
     prompt = f"Write a note about {note_type}. Make sure to include key points and examples."
